@@ -13,8 +13,10 @@ requires-python = ">=3.11,<3.12"
 
 dependencies = [
     "numpy",
+    "scikit-learn",
     "huggingface-hub",
     "torch==2.5.1", 
+    "tqdm",
 ]
 
 [project.optional-dependencies]
