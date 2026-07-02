@@ -21,8 +21,8 @@ train/test splits across tables for more robust metric estimates.
 import numpy as np
 import pandas as pd
 
-from ....benchmarks.base import EvalDatasetCatalog, CEPO_Dataset, DRC_Dataset, DP_Dataset
-from ....benchmarks.scenarios.base import Scenario
+from .base import EvalDatasetCatalog, CEPO_Dataset, DRC_Dataset, DP_Dataset
+from .scenarios.base import Scenario
 
 
 class SemiSyntheticEvalDataset(EvalDatasetCatalog):
