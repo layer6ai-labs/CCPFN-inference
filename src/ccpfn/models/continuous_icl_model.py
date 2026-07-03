@@ -5,6 +5,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+from .loading import load_pretrained_tabdpt_model
 from .model import TabDPTLongContextModel
 from .utils import pad_x_and_t
 
@@ -390,3 +391,15 @@ class ContinuousInContextModel(nn.Module):
             ]
         else:
             return self.model.parameters()
+
+    @classmethod
+    def load(cls, model_state: dict, model_config: dict) -> "ContinuousInContextModel":
+        inner_model_state = {k.replace("model.", ""): v for k, v in model_state.items() if k.startswith("model.")}
+        if model_config["model_type"] == "tabdpt":
+            ckpt_loaded = {"cfg": model_config, "model": inner_model_state}
+            base_model = load_pretrained_tabdpt_model(ckpt_path=None, ckpt=ckpt_loaded)
+        else:
+            raise ValueError(f"Unknown model. Supported model is 'tabdpt'.")
+
+        sigma = model_config.get("sigma", 0.5)
+        return ContinuousInContextModel(model=base_model, model_config=model_config, sigma=sigma)

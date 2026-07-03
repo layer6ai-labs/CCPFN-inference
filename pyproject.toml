@@ -19,6 +19,7 @@ dependencies = [
     "torch==2.5.1", 
     "tqdm",
     "matplotlib",
+    "omegaconf",
 ]
 
 [project.optional-dependencies]

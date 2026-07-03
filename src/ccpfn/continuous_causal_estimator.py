@@ -41,7 +41,7 @@ def download_from_hf_hub(model_path: str, cache_dir: str) -> str:
     # Download the model
     local_path = hf_hub_download(
         repo_id=model_path,
-        filename="causalpfn_v0.pt",
+        filename="ccpfn_v1.pt",
         cache_dir=cache_dir,
     )
     return local_path
@@ -51,7 +51,7 @@ class ContinuousCausalEstimator(ABC):
     def __init__(
         self, 
         device: str, 
-        model_path: str = "chris-L6/CCPFN",
+        model_path: str = "Layer6/CCPFN",
         max_context_length: int = 4096,
         max_query_length: int = 4096,
         verbose: bool = False, 
@@ -70,8 +70,6 @@ class ContinuousCausalEstimator(ABC):
         # larger than this value, the model will apply PCA to reduce the dimensionality.
         self.max_feature_size = None
         self.x_dim_transformer = FunctionTransformer()  # identity transformer by default
-
-        self.n_folds = n_folds
 
         self.X_train, self.t_train, self.y_train = None, None, None
         self.temperature = 1.0
