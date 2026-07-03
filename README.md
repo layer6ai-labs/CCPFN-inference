@@ -19,3 +19,7 @@ pip install -e .
 ```
 
 Example notebooks on CCPFN usage, including individual treatment-response curve reconstruction tasks, can be found in the `notebooks` directory.
+
+## Overview
+
+CCPFN uses in-context learning (ICL) to estimate the effects of a continuously-varying treatment (for example, the dosage of a medication, or the sensitivity of economic outcomes to prices or rates). Specifically, it estimates the *conditional expected potential outcome* (CEPO), defined as $\mathbb{E}[Y(t) \mid X = x]$. Observational (historic) data is supplied as context, and queries are passed at inference time. No further training is required.
