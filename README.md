@@ -19,13 +19,3 @@ pip install -e .
 ```
 
 Example notebooks on CCPFN usage, including individual treatment-response curve reconstruction tasks, can be found in the `notebooks` directory.
-
-## Data Access
-
-Various datasets are not included in the repository and must be downloaded separately.
-
-### Warfarin
-
-1. Download the data from [ClinPGx Downloads](https://www.clinpgx.org/downloads). Locate the **IWPC dataset (.xlsx)** under the "International Warfarin Pharmacogenetics Consortium (IWPC) Data" section.
-2. Open the file and export the **"Subject Data"** sheet as a CSV file.
-3. Update the file paths in `02_warfarin_example.ipynb` to point to your new CSV file.
