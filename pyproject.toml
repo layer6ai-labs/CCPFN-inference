@@ -9,6 +9,13 @@ description = "CCPFN: Causal Foundation Model for Continuous Treatments"
 readme = "README.md"
 license = "Apache-2.0"
 license-files = ["LICEN[CS]E*"]
+authors = [
+    { name = "Christopher Stith", email = "christopher@layer6.ai" },
+    { name = "Medha Barath", email = "medha.barath@mail.utoronto.ca" },
+    { name = "Vahid Balazadeh", email = "vahid@cs.toronto.edu" },
+    { name = "Jesse Cresswell", email = "jesse@layer6.ai" },
+    { name = "Rahul G. Krishnan", email = "rahulgk@cs.toronto.edu" }
+]
 requires-python = ">=3.11,<3.12"
 
 dependencies = [
