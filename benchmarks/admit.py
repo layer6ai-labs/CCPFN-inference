@@ -4,7 +4,7 @@
 
 import numpy as np
 
-from ..src.ccpfn.benchmarks.base import EvalDatasetCatalog, GeneralizedADMITDataset, CEPO_Dataset, DRC_Dataset
+from .base import EvalDatasetCatalog, GeneralizedADMITDataset, CEPO_Dataset, DRC_Dataset
 
 
 class ADMITDataset(GeneralizedADMITDataset, EvalDatasetCatalog):

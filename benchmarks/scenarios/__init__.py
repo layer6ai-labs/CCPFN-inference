@@ -1,5 +1,5 @@
-from ...src.ccpfn.benchmarks.scenarios.base import Scenario
-from ...src.ccpfn.benchmarks.scenarios.admit import ADMIT
+from .base import Scenario
+from .admit import ADMIT
 
 SCENARIOS: dict[str, type[Scenario]] = {
     "admit": ADMIT,

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ccpfn"
-version = "0.1.0"
+version = "0.0.1"
 description = "CCPFN: Causal Foundation Model for Continuous Treatments"
 readme = "README.md"
 license = "Apache-2.0"
@@ -32,3 +32,6 @@ dependencies = [
 [project.optional-dependencies]
 tracking = ["wandb", "mlflow", "tensorboard"]
 notebook = ["jupyter", "ipython"]
+
+[project.urls]
+Homepage = "https://github.com/layer6ai-labs/CCPFN-inference"
