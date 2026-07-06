@@ -4,6 +4,7 @@
 
 [![arxiv](https://img.shields.io/static/v1?label=arXiv&message=2408.16046&color=B31B1B&logo=arXiv)](https://arxiv.org/abs/2605.15133)
 [![huggingface](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-FFD21E)](https://huggingface.co/Layer6/CCPFN)
+[![pypi](https://img.shields.io/badge/PyPI-ccpfn-3775A9?logo=pypi)](https://pypi.org/project/ccpfn/)
 
 </div>
 
