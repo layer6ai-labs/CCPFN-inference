@@ -11,7 +11,15 @@ This is the repository for inference with CCPFN (**C**ontinuous **C**ausal **P**
 
 ## Quick Start
 
-To install from source (a PyPI package is forthcoming), run the following:
+Install with `pip`: 
+
+```bash
+pip install ccpfn
+```
+
+Model weights are available on [Hugging Face](https://huggingface.co/Layer6/CCPFN) and will be automatically downloaded on first use.
+
+To install from source, ensure you have Python ≥3.10. Then run the following:
 ```bash
 git clone https://github.com/layer6ai-labs/CCPFN-inference.git
 cd CCPFN-inference
