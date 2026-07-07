@@ -31,7 +31,50 @@ cd CCPFN-inference
 pip install -e .
 ```
 
-Example notebooks on CCPFN usage, including individual treatment-response curve reconstruction tasks, can be found in the `notebooks` directory.
+Example notebooks on CCPFN usage, including individual treatment-response curve reconstruction tasks, can be found in the `notebooks` directory. Here is a simple example demonstrating how to run CCPFN for conditional expected potential outcome (CEPO) estimation:
+
+```python
+import numpy as np
+import torch
+from ccpfn import CEPOEstimator
+
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
+# Define true individual treatment-response function
+def treatment_response(x, t): 
+      return np.cos(x[..., 0]) + 2 * x[..., 1] * t
+
+# Define treatment assignment function
+def treatment(x):
+      return 1 + np.sin(x[..., 2])
+
+# Create synthetic data - covariates, treatment, outcome
+rng = np.random.default_rng(seed=42)
+n_samples, n_features = 2048, 3
+X = rng.standard_normal((n_samples, n_features))
+T = treatment(X)
+Y = treatment_response(X, T) + 0.1 * rng.standard_normal((n_samples,))
+
+# Context/query (train/test) split
+test_ratio = 0.3
+ctx_idx = rng.choice(n_samples, int((1 - test_ratio) * n_samples), replace=False)
+qry_idx = np.setdiff1d(np.arange(n_samples), ctx_idx)
+X_ctx, X_qry = X[ctx_idx], X[qry_idx]
+T_ctx, Y_ctx = T[ctx_idx], Y[ctx_idx]
+T_qry = rng.random((X_qry.shape[0],))  # Counterfactual treatments
+
+# CEPO Estimation
+estimator = CEPOEstimator(device=device)
+estimator.fit(X_ctx, T_ctx, Y_ctx)
+cepo_pred = estimator.estimate_cepo(X_qry, T_qry)
+
+# Evaluation and results
+cepo_true = treatment_response(X_qry, T_qry)
+rmse = np.sqrt(np.mean((cepo_true - cepo_pred) ** 2))
+print("Results:")
+print(f"RMSE: {rmse:.4f}")
+```
+
 
 ## Overview
 
