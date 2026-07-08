@@ -115,7 +115,7 @@ class TabDPTLongContextModel(nn.Module):
         Args:
             x_src (torch.Tensor): Input treatment and covariates; treatment is first value in last dim
             y_src (torch.Tensor): Target values
-            return_log_act_norms (bool): Whether to return activation norms for logging
+            return_log_act_norms (bool): Whether to return activation norms for logging. Deprecated.
 
         Returns:
             torch.Tensor: Predicted distribution of target values (logits)
@@ -159,10 +159,7 @@ class TabDPTLongContextModel(nn.Module):
         # Random hack that works - not in current TabDPT
         pred = 30 * torch.tanh(pred / (7.5 * src.size(-1) ** 0.5))
 
-        if return_log_act_norms:
-            return pred[context_length:], log_act_norms
-        else:
-            return pred[context_length:]
+        return pred[context_length:]
 
 
     @classmethod
