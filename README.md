@@ -10,7 +10,7 @@
 
 This is the repository for inference with CCPFN (**C**ontinuous **C**ausal **P**rior-**F**itted **N**etwork), a causal foundation model for use in domains with a continuous treatment variable. This setting often requires the estimation of a full treatment-response curve, a non-trivial task as illustrated in Figure 1. Observational (historic) data is supplied as context, and queries are passed at inference time. No further training is required. This is the inference repository; the full research reposistory (including training code and our prior) is forthcoming.
 
-![problem difficulty](assets/figure_one.png)
+![problem difficulty](https://raw.githubusercontent.com/layer6ai-labs/CCPFN-inference/main/assets/figure_one.png)
 *Figure 1*:  Estimating causal effects for continuous treatments (right) is much more challenging than
 for binary treatments (left), as multiple treatment-response curves fit the observed data equally well.
 
@@ -84,7 +84,7 @@ Our model achieves state-of-the-art performance
 on individual treatment-response curve reconstruction tasks compared to causal
 models which are trained specifically for those tasks.
 
-![Results table](assets/results_table.png)
+![Results table](https://raw.githubusercontent.com/layer6ai-labs/CCPFN-inference/main/assets/results_table.png)
  *Table 1*: Comparative evaluation of mean MISE across benchmark test datasets. Columns correspond
 to different benchmark datasets; values represent mean MISE ± standard deviation as computed
 with 5-fold cross-validation. First place is bold, second place is underlined. Dashes (—) indicate no
@@ -92,7 +92,7 @@ meaningful results were obtained. When evaluating TabPFN we apply PCA to reduce 
 to 100, due to memory constraints and to match the dimensionality reduction used in CCPFN. DRNet,
 VCNet, and EBCT did not produce meaningful results for the MISE metric and hence are omitted.
 
-![Curve Predictions](assets/curve_predictions.png)
+![Curve Predictions](https://raw.githubusercontent.com/layer6ai-labs/CCPFN-inference/main/assets/curve_predictions.png)
 
  *Figure 2*:  Predicted individual treatment-response curves (ITRCs) and true ITRC for two randomly selected individuals from the Warfarin benchmark, where the outcome represents the loss between a patient’s administered dose and the optimal dose, as determined by the IWPC pharmacogenetic dosing algorithm.
 
