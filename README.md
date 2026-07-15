@@ -98,7 +98,8 @@ VCNet, and EBCT did not produce meaningful results for the MISE metric and hence
 
  # Citation
 
- ```@misc{stith2026causalfoundationmodelscontinuous,
+ ```bibtex
+      @misc{stith2026causalfoundationmodelscontinuous,
       title={Causal Foundation Models with Continuous Treatments}, 
       author={Christopher Stith and Medha Barath and Vahid Balazadeh and Jesse C. Cresswell and Rahul G. Krishnan},
       year={2026},
